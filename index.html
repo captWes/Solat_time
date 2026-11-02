@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolatTime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SolatTime</h1>
+    <p>Prayer Time Reminder</p>
+  </header>
+
+  <nav>
+    <button class="nav-button active" data-page="homePage">Prayer Times</button>
+    <button class="nav-button" data-page="reminderPage">My Reminders</button>
+    <button class="nav-button" data-page="quranPage">Quran Mushaf</button>
+  </nav>
+
+  <main>
+    <section id="homePage" class="page">
+      <div class="panel">
+        <h2>Waktu Solat Hari Ini</h2>
+        <p>Choose a city.</p>
+        <div class="controls">
+          <input id="cityInput" type="text" value="Kuala Lumpur" placeholder="Enter city">
+          <input id="countryInput" type="text" value="Malaysia" placeholder="Enter country">
+          <button id="searchPrayerBtn">Get Prayer Times</button>
+        </div>
+        <p id="apiMessage" class="message">load prayer times.</p>
+        <p id="hijriDate" class="message"></p>
+        <div id="prayerList" class="prayer-grid"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Next Prayer</h2>
+        <p id="nextPrayer">Prayer times not loaded yet.</p>
+        <p id="countdown">Remaining time: --:--:--</p>
+        <h3>Suggested Activity</h3>
+        <p id="suggestion">Load prayer times to see a suggestion.</p>
+        <button id="saveSuggestionBtn" disabled>Save Suggestion</button>
+      </div>
+    </section>
+
+    <section id="reminderPage" class="page hidden">
+      <div class="panel">
+        <h2>Reminders</h2>
+        <p>Add reminder.</p>
+        <form id="reminderForm">
+          <input type="hidden" id="editId">
+          <label for="reminderTitle">Reminder title</label>
+          <input id="reminderTitle" type="text" placeholder="Example: Selawat Dok Gi?" required>
+          <label for="reminderTime">Time</label>
+          <input id="reminderTime" type="time" required>
+          <label for="reminderNotes">Notes</label>
+          <input id="reminderNotes" type="text" placeholder="Optional notes">
+          <div class="controls">
+            <button type="submit" id="submitReminderBtn">Add Reminder</button>
+            <button type="button" id="cancelEditBtn" class="secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+        <p id="formMessage" class="message"></p>
+      </div>
+      <div class="panel">
+        <h2>Saved Reminders</h2>
+        <div id="reminderList"></div>
+      </div>
+    </section>
+
+    <!-- Quran Reading Feature -->
+    <section id="quranPage" class="page hidden">
+      <div class="panel">
+        <h2>Quran </h2>
+        <p>Read Quran.</p>
+        
+        <div class="controls" style="justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <div>
+            <button id="prevPageBtn">Previous Page</button>
+            <button id="nextPageBtn">Next Page</button>
+          </div>
+          <div>
+            <label for="pageJumpInput" style="display:inline; margin-right: 5px;">Page (1-604):</label>
+            <input id="pageJumpInput" type="number" min="1" max="604" value="1" style="width: 80px;">
+            <button id="jumpPageBtn">Go</button>
+          </div>
+        </div>
+
+        <div id="mushafContainer" class="mushaf-panel">
+          <div class="mushaf-header">
+            <span id="surahNameDisplay">Surah: Loading...</span>
+            <span id="juzDisplay">Juz' --</span>
+          </div>
+          <div id="quranTextContent" class="quran-text-box">
+            Loading Quran page...
+          </div>
+          <div class="mushaf-footer">
+            <span>Page <span id="pageNumberDisplay">1</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>SolatTime</footer>
+  <script src="script.js"></script>
+</body>
+</html>
