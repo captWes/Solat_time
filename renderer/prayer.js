@@ -1,6 +1,5 @@
 const prayerNames = ["Subuh", "Dhuhr", "Asr", "Maghrib", "Isha"]; // names shown to the user
 
-// The API calls Subuh "Fajr", so we convert our display name to the API key.
 function getTime(name) {
   const apiKey = (name === "Subuh") ? "Fajr" : name;
   return prayerTimes[apiKey];
