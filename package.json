@@ -1,0 +1,12 @@
+{
+  "name": "solattime",
+  "version": "1.0.0",
+  "description": "Simple prayer time desktop application for OOP final assignment",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^33.0.0"
+  }
+}

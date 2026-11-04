@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SolatTime - Quran Mushaf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>SolatTime</h1>
+    <p>Quran Mushaf Reader</p>
+  </header>
+
+  <nav>
+    <button onclick="window.location.href='prayer.html'">Prayer Times & Reminders</button>
+  </nav>
+
+  <main>
+    <section class="page">
+      <div class="panel">
+        <h2>Quran Mushaf</h2>
+        <p>Read the Quran page by page.</p>
+
+        <div class="controls" style="justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <div>
+            <button id="prevPageBtn">Previous Page</button>
+            <button id="nextPageBtn">Next Page</button>
+          </div>
+          <div>
+            <label for="pageJumpInput" style="display:inline; margin-right: 5px;">Page (1-604):</label>
+            <input id="pageJumpInput" type="number" min="1" max="604" value="1" style="width: 80px;">
+            <button id="jumpPageBtn">Go</button>
+          </div>
+        </div>
+
+        <div id="mushafContainer" class="mushaf-panel">
+          <div class="mushaf-header">
+            <span id="surahNameDisplay">Surah: Loading...</span>
+            <span id="juzDisplay">Juz' --</span>
+          </div>
+          <div id="quranTextContent" class="quran-text-box">Loading Quran page...</div>
+          <div class="mushaf-footer">
+            <span>Page <span id="pageNumberDisplay">1</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>SolatTime</footer>
+  <script src="quran.js"></script>
+</body>
+</html>
